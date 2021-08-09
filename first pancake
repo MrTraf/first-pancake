@@ -1,4 +1,5 @@
 #Whole code
+#this block makes three  pair's = list's
 Path = []
 Path1 = []
 Path2 = []
@@ -24,7 +25,7 @@ while len(Path2) < 2:
         print("Sorry, you can already use this word one time in pair")
         continue
     else: Path2.append(answer)
-        #Seporated part
+#finds first element to print
 if len(Path) > 0 and Path[0] != Path1[1] and Path[0] != Path2[1]:
  ThePath.insert(0,Path[0])
  Path.pop(0) #remove element for future easest way to find the second one
