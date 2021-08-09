@@ -1,0 +1,71 @@
+#Whole code
+Path = []
+Path1 = []
+Path2 = []
+ThePath = []
+while len(Path) < 2:
+    print("Please print the name of the city")
+    answer = input()
+    if answer in Path:
+        print("Sorry, you can already use this word one time in pair")
+        continue
+    else: Path.append(answer)
+while len(Path1) < 2:
+    print("Please print the name of the city")
+    answer = input()
+    if answer in Path1:
+        print("Sorry, you can already use this word one time in pair")
+        continue
+    else: Path1.append(answer)
+while len(Path2) < 2:
+    print("Please print the name of the city")
+    answer = input()
+    if answer in Path2:
+        print("Sorry, you can already use this word one time in pair")
+        continue
+    else: Path2.append(answer)
+        #Seporated part
+if len(Path) > 0 and Path[0] != Path1[1] and Path[0] != Path2[1]:
+ ThePath.insert(0,Path[0])
+ Path.pop(0) #remove element for future easest way to find the second one
+elif len(Path1) > 0 and Path1[0] != Path[1] and Path1[0] != Path2[1]:
+ ThePath.insert(0,Path1[0])   
+ Path1.pop(0)
+elif Path2[0] != Path[1] and Path2[0] != Path2[1]:
+ ThePath.insert(0,Path2[0])
+ Path2.pop(0)
+#finds the second one, exclude one already in the list and has to include doubled data
+if len(Path) == 1:
+ ThePath.insert(1,Path[0])
+ delete = Path.pop(0)
+elif len(Path1) == 1:
+ ThePath.insert(1,Path1[0])
+ delete = Path1.pop(0)
+elif len(Path2) == 1:
+ ThePath.insert(1,Path2[0])
+ delete = Path2.pop(0)
+#find the third one, exclude ...(c)
+if Path[0] in ThePath:
+ ThePath.insert(2,Path[1])
+ Path.pop()
+ Path.pop(0)
+elif len(Path1) > 0 and Path1[0] in ThePath:
+ ThePath.insert(2,Path1[1])   
+ Path1.pop()
+ Path1.pop(0)
+elif len(Path2) > 0 and Path2[0] in ThePath:
+ ThePath.insert(2,Path2[1])   
+ Path2.pop(0) and Path2.pop()    
+#find the forth one, exclude ...(c)
+if len(Path) > 1:
+ ThePath.insert(3,Path[1])
+ Path.pop()
+ Path.pop(0)
+elif len(Path1) > 1:
+ ThePath.insert(3,Path1[1])   
+ Path1.pop()
+ Path1.pop(0)
+elif len(Path2) > 1:
+ ThePath.insert(3,Path2[1])   
+
+print(ThePath)
